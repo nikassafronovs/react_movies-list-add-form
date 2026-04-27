@@ -38,6 +38,9 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     reset();
   };
 
+  const isFomValid =
+    !title.trim() || !imdbId.trim() || !imdbUrl.trim() || !imgUrl.trim();
+
   return (
     <form
       className="NewMovie"
@@ -93,7 +96,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
             type="submit"
             data-cy="submit-button"
             className="button is-link"
-            disabled={Boolean(!title || !imgUrl || !imdbId || !imdbUrl)}
+            disabled={isFomValid}
           >
             Add
           </button>
